@@ -1,0 +1,5 @@
+- AddRowModalにおけるsocialMediaの追加処理
+- participantsページにおけるsocialMediaの更新処理
+- 模擬店と教室それぞれのコラムに応じた処理
+    - AddRowModal
+    - TableCell
