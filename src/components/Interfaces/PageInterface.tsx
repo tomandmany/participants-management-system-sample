@@ -1,7 +1,7 @@
 import Provider from "@/app/contexts/provider";
 import TableRoot from "@/components/Table/TableRoot";
 import OpenModalButton from "@/components/Modal/OpenModalButton";
-import PageLinkListButton from "@/components/PageLinkListButton";
+import PageHeading from "@/components/PageHeading";
 import { getParticipants } from "@/data/participants";
 import { getParticipantSocialMedias } from "@/data/participantSocialMedias";
 
@@ -20,7 +20,7 @@ export default async function PageInterface({ programs, heading }: PageInterface
         {
           heading && (
             // <h1 className="text-lg bg-white shadow-md max-w-fit px-4 py-2 rounded-md">{heading}</h1>
-            <PageLinkListButton heading={heading} />
+            <PageHeading heading={heading} />
           )
         }
         <OpenModalButton participants={participants} />

@@ -1,15 +1,15 @@
-// @/components/PageLinkListButton.tsx
+// @/components/PageHeading.tsx
 'use client';
 
 import { ChevronLeft } from 'lucide-react';
 import { useRef, useState } from 'react';
 import PageLink from './PageLink';
 
-type PageLinkListButtonProps = {
+type PageHeadingProps = {
     heading: string;
 };
 
-export default function PageLinkListButton({ heading }: PageLinkListButtonProps) {
+export default function PageHeading({ heading }: PageHeadingProps) {
     const [isHovered, setIsHovered] = useState(false);
     const [isSubmenuHovered, setIsSubmenuHovered] = useState(false);
     const headingRef = useRef<HTMLDivElement | null>(null);
@@ -37,18 +37,32 @@ export default function PageLinkListButton({ heading }: PageLinkListButtonProps)
 
     const isMenuActive = isHovered || isSubmenuHovered;
     const headingWidth = headingRef.current ? headingRef.current.clientWidth : 0;
+    const headingHeight = headingRef.current ? headingRef.current.clientHeight : 0;
 
     return (
         <div
-            className={`text-lg bg-white shadow-md max-w-fit px-4 py-2 flex relative items-center gap-2 cursor-pointer z-10 rounded-md`}
+            className={`text-lg shadow-md max-w-fit px-4 py-2 relative z-10 rounded-md bg-white`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             ref={headingRef}
         >
-            <span>{heading}</span>
-            <ChevronLeft
-                className={`transition-transform ${isMenuActive ? "rotate-180" : "rotate-0"}`}
-            />
+            <div className='flex items-center gap-2'>
+                <span>{heading}</span>
+                <ChevronLeft
+                    className={`transition-transform ${isMenuActive ? "rotate-180" : "rotate-0"}`}
+                />
+            </div>
+            {isHovered && (
+                <div
+                    className='absolute left-0 cursor-default'
+                    style={{
+                        width: `${headingWidth}px`,
+                        height: `calc(256px - ${headingHeight}px)`,
+                        top: `${headingHeight}px`
+                    } as React.CSSProperties}
+                />
+            )
+            }
             <div
                 className={`absolute flex-col gap-4 top-0 rounded-md shadow-lg border p-4 min-w-[250px] bg-white transition-opacity ${isMenuActive ? "flex" : "hidden"}`}
                 onMouseEnter={handleSubmenuMouseEnter}
