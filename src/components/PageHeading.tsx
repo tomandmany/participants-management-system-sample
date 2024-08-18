@@ -41,15 +41,15 @@ export default function PageHeading({ heading }: PageHeadingProps) {
 
     return (
         <div
-            className={`text-lg shadow-md max-w-fit px-4 py-2 relative z-10 rounded-md bg-white`}
+            className='shadow-md max-w-fit px-4 py-2 relative z-10 rounded-md bg-white'
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             ref={headingRef}
         >
             <div className='flex items-center gap-2'>
-                <span>{heading}</span>
+                <span className='text-lg'>{heading}</span>
                 <ChevronLeft
-                    className={`transition-transform ${isMenuActive ? "rotate-180" : "rotate-0"}`}
+                    className={`transition - transform ${isMenuActive ? "rotate-180" : "rotate-0"}`}
                 />
             </div>
             {isHovered && (
@@ -57,14 +57,14 @@ export default function PageHeading({ heading }: PageHeadingProps) {
                     className='absolute left-0 cursor-default'
                     style={{
                         width: `${headingWidth}px`,
-                        height: `calc(256px - ${headingHeight}px)`,
+                        height: `calc(218px - ${headingHeight}px)`,
                         top: `${headingHeight}px`
                     } as React.CSSProperties}
                 />
             )
             }
             <div
-                className={`absolute flex-col gap-4 top-0 rounded-md shadow-lg border p-4 min-w-[250px] bg-white transition-opacity ${isMenuActive ? "flex" : "hidden"}`}
+                className={`absolute flex-col gap-2 top-0 rounded-md shadow-lg border p-4 min-w-[220px] bg-white transition-opacity ${isMenuActive ? "flex" : "hidden"}`}
                 onMouseEnter={handleSubmenuMouseEnter}
                 onMouseLeave={handleSubmenuMouseLeave}
                 style={{ left: `${headingWidth}px` } as React.CSSProperties}
@@ -74,6 +74,6 @@ export default function PageHeading({ heading }: PageHeadingProps) {
                 <PageLink department="outstage" name="屋外ステージ" handleLinkClick={handleLinkClick} />
                 <PageLink department="room" name="教室" handleLinkClick={handleLinkClick} />
             </div>
-        </div>
+        </div >
     );
 }
