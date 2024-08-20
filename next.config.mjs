@@ -10,15 +10,15 @@ const nextConfig = {
             },
         ],
     },
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/participants',
-                permanent: true,
-            },
-        ]
-    },
+    // async redirects() {
+    //     return [
+    //         {
+    //             source: '/',
+    //             destination: '/participants',
+    //             permanent: true,
+    //         },
+    //     ]
+    // },
 };
 
 export default nextConfig;
