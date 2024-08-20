@@ -10,7 +10,7 @@ function PageLink({ link, children }: PageLinkProps) {
     return (
         <Link
             href={link}
-            className="w-64 h-32 rounded-md flex gap-4 items-center border-4 justify-center hover:bg-gray-400 hover:text-white transition"
+            className="w-64 h-32 rounded-md flex gap-4 items-center border-4 justify-center bg-white hover:bg-gray-400 hover:text-white transition"
         >
             {children}
             <ChevronRight />
